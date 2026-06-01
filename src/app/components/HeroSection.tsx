@@ -8,10 +8,10 @@ export default function Home() {
       <div className="tiny-container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div className="text-center md:text-left">
           <button className="text-xs md:text-sm text-black flex items-center bg-[#e7e9e1] py-2 px-4 rounded-full border border-green-100 font-medium">
-            <Image src="/star.webp" alt="star" width={20} height={20} />
-            <Image src="/star.webp" alt="star" width={20} height={20} />
-            <Image src="/star.webp" alt="star" width={20} height={20} />
-            <Image src="/star.webp" alt="star" width={20} height={20} />
+            <Image src="/images/star.webp" alt="star" width={20} height={20} />
+            <Image src="/images/star.webp" alt="star" width={20} height={20} />
+            <Image src="/images/star.webp" alt="star" width={20} height={20} />
+            <Image src="/images/star.webp" alt="star" width={20} height={20} />
             <Image
               src="/star.webp"
               alt="star"
