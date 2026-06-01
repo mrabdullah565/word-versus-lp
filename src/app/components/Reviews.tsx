@@ -65,7 +65,7 @@ const Reviews = () => {
                                 {Array.from({ length: item.rating }).map((_, i) => (
                                     <Image
                                         key={i}
-                                        src="/star.webp"
+                                        src="/images/star.webp"
                                         alt="star"
                                         width={18}
                                         height={18}

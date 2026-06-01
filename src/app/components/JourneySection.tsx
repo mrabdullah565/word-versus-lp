@@ -2,7 +2,7 @@
 
 const Journey = () => {
     return (
-        <section className=" tiny-container py-24 bg-linear-to-b from-[#f8f4ed] to-[#f8eee6]">
+        <section className="tiny-container py-24 bg-linear-to-b from-[#f8f4ed] to-[#f8eee6]">
             <div className="max-w-5xl mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-[#2d3638] leading-tight">
                     Ready to start your farming journey?
