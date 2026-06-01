@@ -20,7 +20,7 @@ const Navbar = () => {
 
                 <Link href="/" className="flex items-center gap-3 z-50">
                     <Image
-                        src="/logo.png"
+                        src="/images/logo.png"
                         alt="TinyHarvest Logo"
                         width={32}
                         height={32}
