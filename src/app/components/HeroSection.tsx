@@ -13,7 +13,7 @@ export default function Home() {
             <Image src="/images/star.webp" alt="star" width={20} height={20} />
             <Image src="/images/star.webp" alt="star" width={20} height={20} />
             <Image
-              src="/star.webp"
+              src="/images/star.webp"
               alt="star"
               width={20}
               height={20}
