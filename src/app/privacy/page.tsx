@@ -1,63 +1,113 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Privacy Policy | Tiny Harvest",
-  description: "Read about how Tiny Harvest collects and protects your information.",
-};
+import Navbar from "../components/navbar/Navbar";
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-[#FEFBF7] text-slate-900">
-      <div className="tiny-container mx-auto px-6 py-24">
-        <Link href="/" className="text-sm font-medium text-green-600 hover:underline">
-          ← Back to Home
-        </Link>
+    <>
+      <Navbar />
 
-        <div className="mt-10 rounded-3xl bg-white p-10 shadow-lg shadow-slate-200/50">
-          <h1 className="text-4xl font-semibold tracking-tight">Privacy Policy</h1>
-          <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-            At Tiny Harvest, we respect your privacy and are committed to protecting your personal data. This page explains what information we collect, how we use it, and the choices you have.
+      <main className="bg-[#FEFBF7] min-h-screen">
+        <div className="max-w-3xl mx-auto px-6 py-24">
+
+          {/* Title */}
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
+            Privacy Policy
+          </h1>
+
+          <p className="text-gray-500 mt-4 mb-20">
+            Last updated: June 7, 2026
           </p>
 
-          <section className="mt-12 space-y-6">
-            <div>
-              <h2 className="text-2xl font-semibold">Information We Collect</h2>
-              <p className="mt-3 text-slate-600 leading-7">
-                We may collect information you provide directly, such as email addresses for support requests, and non-personal usage data to help improve the website experience.
-              </p>
-            </div>
+          {/* CONTENT (NO BOXES, NO BORDERS) */}
+          <div className="space-y-20 text-gray-700 leading-[1.9]">
 
-            <div>
-              <h2 className="text-2xl font-semibold">How We Use Your Data</h2>
-              <p className="mt-3 text-slate-600 leading-7">
-                We use data to keep the site running, respond to inquiries, and improve our content. We do not sell your personal information to third parties.
+            <section>
+              <h2 className="text-2xl font-semibold text-black mb-6">
+                1. Overview
+              </h2>
+              <p>
+                Tiny Harvest respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our website and services. By using our platform, you agree to this policy.
               </p>
-            </div>
+            </section>
 
-            <div>
-              <h2 className="text-2xl font-semibold">Cookies and Tracking</h2>
-              <p className="mt-3 text-slate-600 leading-7">
-                The site may use cookies or similar technologies to support basic functionality and analytics. You can manage cookies through your browser settings.
+            <section>
+              <h2 className="text-2xl font-semibold text-black mb-6">
+                2. Information We Collect
+              </h2>
+              <p>
+                We collect information that you provide directly such as your name, email address, and contact details. We also collect usage data including pages visited, actions taken, device information, and browser type to improve user experience and platform performance.
               </p>
-            </div>
+            </section>
 
-            <div>
-              <h2 className="text-2xl font-semibold">Your Rights</h2>
-              <p className="mt-3 text-slate-600 leading-7">
-                You can request access to any personal information we hold and ask for corrections. If you have privacy concerns, contact us through the support channels on the site.
+            <section>
+              <h2 className="text-2xl font-semibold text-black mb-6">
+                3. How We Use Information
+              </h2>
+              <p>
+                We use your information to operate and improve our services, respond to user requests, provide support, analyze platform usage, and enhance security. We may also use data to send important updates and service notifications.
               </p>
-            </div>
+            </section>
 
-            <div>
-              <h2 className="text-2xl font-semibold">Changes to This Policy</h2>
-              <p className="mt-3 text-slate-600 leading-7">
-                We may update this policy occasionally. The updated version will always be available on this page.
+            <section>
+              <h2 className="text-2xl font-semibold text-black mb-6">
+                4. Cookies
+              </h2>
+              <p>
+                Cookies help us understand how users interact with our platform. They allow us to improve functionality and personalize your experience. You can disable cookies in your browser settings, but some features may stop working properly.
               </p>
-            </div>
-          </section>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-black mb-6">
+                5. Data Security
+              </h2>
+              <p>
+                We implement industry-standard security practices to protect your data. However, no method of online transmission or storage is completely secure, so we cannot guarantee absolute security.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-black mb-6">
+                6. Third-Party Services
+              </h2>
+              <p>
+                We may use third-party tools for analytics, hosting, and performance monitoring. These services only access the minimum data required and are not allowed to misuse it.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-black mb-6">
+                7. Your Rights
+              </h2>
+              <p>
+                You have the right to access, update, or delete your personal data depending on your region. You may also request restrictions on how your data is used.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-black mb-6">
+                8. Changes
+              </h2>
+              <p>
+                We may update this Privacy Policy from time to time. Any changes will be posted here with an updated date.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-black mb-6">
+                9. Contact
+              </h2>
+              <p>
+                If you have any questions, you can contact us at:
+              </p>
+
+              <p className="mt-6 font-medium text-black">
+                hello@tinyharvest.com
+              </p>
+            </section>
+
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
