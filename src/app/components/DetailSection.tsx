@@ -89,7 +89,10 @@ const DetailSection = () => {
       });
     }, sectionRef);
 
-    return () => ctx.revert();
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ctx.revert();
+    };
   }, []);
 
   const title = [

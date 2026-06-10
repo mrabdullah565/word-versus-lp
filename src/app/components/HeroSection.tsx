@@ -68,14 +68,15 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="relative w-full h-100 md:h-125 lg:h-180">
+                <div className="relative w-full h-100 md:h-125 lg:h-180">
           <Image
             src="/images/image_4.png"
             alt="Hero Image"
             fill
+            sizes="100vw"
             className="object-contain"
           />
-        </div> 
+        </div>
       </div>
     </section>
   );

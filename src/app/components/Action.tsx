@@ -26,6 +26,7 @@ const Action = () => {
                   src={item.image}
                   alt={item.title}
                   fill
+                  sizes="(max-width: 640px) 100vw, 192px"
                   className="object-contain"
                 />
               </div>
@@ -45,6 +46,7 @@ const Action = () => {
                   src={item.image}
                   alt={item.title}
                   fill
+                  sizes="(max-width: 640px) 100vw, 192px"
                   className="object-contain"
                 />
               </div>

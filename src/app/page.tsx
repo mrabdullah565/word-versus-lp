@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from './components/navbar/Navbar'
 import HeroSection from './components/HeroSection'
 import Reviews from './components/Reviews'
 import Action from './components/Action'
@@ -11,7 +10,6 @@ import DetailSection from './components/DetailSection'
 const page = () => {
   return (
     <>
-      <Navbar />
       <HeroSection />
       <Reviews />
       <DetailSection />
