@@ -1,4 +1,4 @@
-import  Link  from "next/link";
+import Link from "next/link";
 
 export default function FooterSection() {
     return (
@@ -16,7 +16,9 @@ export default function FooterSection() {
                     <span>•</span>
                     <span>Support</span>
                     <span>•</span>
-                     <Link href="/privacy">Privacy Policy</Link>
+                    <Link href="/privacy" className="hover:underline">
+                        Privacy Policy
+                    </Link>
                     <span>•</span>
                     <a href="/terms" className="hover:underline">
                         Terms of Use

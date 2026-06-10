@@ -13,6 +13,8 @@ const DetailSection = () => {
   const textRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    if (!sectionRef.current) return;
+
     const ctx = gsap.context(() => {
       const texts = textRef.current?.children || [];
       const images = imagesRef.current;
@@ -28,8 +30,8 @@ const DetailSection = () => {
           start: "top top",
           end: "+=3000",
           scrub: true,
-          pin: true,
-          pinSpacing: true,
+          pin: false,
+          pinSpacing: false,
         },
       });
 
@@ -87,7 +89,7 @@ const DetailSection = () => {
           );
         }
       });
-    }, sectionRef);
+    }, sectionRef.current);
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
