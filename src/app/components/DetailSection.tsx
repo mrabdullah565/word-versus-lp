@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
@@ -9,20 +9,53 @@ gsap.registerPlugin(ScrollTrigger);
 
 const DetailSection = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const imagesRef = useRef<(HTMLDivElement | null)[]>([]);
+  const imagesRef = useRef<Array<HTMLDivElement | null>>([]);
   const textRef = useRef<HTMLDivElement | null>(null);
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const ctxRef = useRef<gsap.Context | null>(null);
+
+  useLayoutEffect(() => {
+    return () => {
+      // Immediate cleanup before component unmounts
+      if (timelineRef.current) {
+        timelineRef.current.kill();
+        timelineRef.current = null;
+      }
+
+      if (ctxRef.current) {
+        ctxRef.current.revert();
+        ctxRef.current = null;
+      }
+
+      // Kill all ScrollTriggers for this section
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.trigger === sectionRef.current) {
+          trigger.kill();
+        }
+      });
+
+      // Reset refs
+      imagesRef.current = [];
+    };
+  }, []);
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+    if (!sectionRef.current || !textRef.current) return;
+
+    // Safety check: ensure all refs are valid
+    const validImages = imagesRef.current.filter((el) => el !== null);
+    if (validImages.length === 0) return;
 
     const ctx = gsap.context(() => {
-      const texts = textRef.current?.children || [];
-      const images = imagesRef.current;
+      const texts = Array.from(textRef.current?.children || []);
+      const images = validImages;
 
+      if (images.length === 0 || texts.length === 0) return;
+
+      // Reset elements to initial state
       gsap.set(texts, { opacity: 0, y: 0 });
-      gsap.set(texts[0], { opacity: 1 });
-
-      gsap.set(images, { opacity: 1, scale: 1, x: 0, y: 0 });
+      gsap.set(texts[0], { opacity: 1, y: 0 });
+      gsap.set(images, { opacity: 1, scale: 1, x: 0, y: 0, rotate: 0 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -30,70 +63,101 @@ const DetailSection = () => {
           start: "top top",
           end: "+=3000",
           scrub: true,
-          pin: false,
-          pinSpacing: false,
+          pin: true,
+          pinSpacing: true,
         },
       });
 
+      timelineRef.current = tl;
+
+      // Create smooth sequential animations
+      const stepDuration = 1; // duration for each step
+      const transitionDuration = 0.3;
+
       images.forEach((img, i) => {
-        const currentText = texts[i];
-        const nextText = texts[i + 1];
-
-        if (!img) return;
-
-        if (i !== images.length - 1) {
-          tl.to(
-            img,
-            {
-              rotate: 25,
-              transformOrigin: "bottom",
-              ease: "none",
-            },
-            i,
-          ).to(
-            img,
-            {
-              opacity: 0,
-              duration: 0.3,
-              ease: "none",
-            },
-            i + 0.3,
-          );
+        if (i === images.length - 1) {
+          // Last image stays visible
+          return;
         }
 
-        if (currentText && i !== texts.length - 1) {
+        const position = i * stepDuration;
+        const currentText = texts[i];
+        const nextText = texts[i + 1];
+      
+        // Image rotation and fade out
+        tl.to(
+          img,
+          {
+            rotate: 25,
+            duration: stepDuration * 0.6,
+            transformOrigin: "bottom",
+            ease: "none",
+          },
+          position,
+        ).to(
+          img,
+          {
+            opacity: 0,
+            duration: transitionDuration,
+            ease: "none",
+          },
+          position + stepDuration * 0.3,
+        );
+
+        // Current text fades out and moves up
+        if (currentText) {
           tl.to(
             currentText,
             {
               opacity: 0,
-              y: -20,
-              duration: 0.2,
+              y: -15,
+              duration: transitionDuration,
+              ease: "expo.out",
             },
-            i,
+            position + stepDuration * 0.5,
           );
         }
 
+        // Next text fades in and moves from below
         if (nextText) {
           tl.fromTo(
             nextText,
             {
               opacity: 0,
-              y: 20,
+              y: 15,
             },
             {
               opacity: 1,
               y: 0,
-              duration: 0.2,
+              duration: transitionDuration,
+              ease: "expo.out",
             },
-            i + 0.2,
+            position + stepDuration * 0.6,
           );
         }
       });
-    }, sectionRef.current);
+    }, sectionRef);
+
+    ctxRef.current = ctx;
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      ctx.revert();
+      // Cleanup on unmount
+      if (timelineRef.current) {
+        timelineRef.current.kill();
+        timelineRef.current = null;
+      }
+
+      if (ctx) {
+        ctx.revert();
+      }
+
+      ctxRef.current = null;
+
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.trigger === sectionRef.current) {
+          trigger.kill();
+        }
+      });
     };
   }, []);
 
@@ -140,14 +204,18 @@ const DetailSection = () => {
           <div className="relative w-88 h-88 mb-44">
             {images.map((src, i) => (
               <div
-                key={i}
+                key={`detail-image-${i}`}
                 ref={(el) => {
-                  imagesRef.current[i] = el;
+                  if (el) {
+                    imagesRef.current[i] = el;
+                  } else {
+                    imagesRef.current[i] = null;
+                  }
                 }}
                 className="absolute top-0 left-0"
                 style={{ zIndex: 50 - i }}
               >
-                <Image src={src} alt="img" width={300} height={400}/>
+                <Image src={src} alt="img" width={300} height={400} priority={i === 0} />
               </div>
             ))}
           </div>
