@@ -1,6 +1,7 @@
 import React from "react";
 import HeroV4 from "./components/HeroV4";
 import ProblemSection from "./components/ProblemSection";
+import HowItWorksSection from "./components/HowItWorksSection";
 import Reviews from "./components/Reviews";
 import Action from "./components/Action";
 import Journey from "./components/JourneySection";
@@ -13,8 +14,9 @@ const page = () => {
     <>
       <HeroV4 />
       <ProblemSection />
+      <HowItWorksSection />
       <Reviews />
-      <DetailSection />
+      {/* <DetailSection /> */}
       <Action />
       <Journey />
       <CommunitySection />
