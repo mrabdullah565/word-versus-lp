@@ -1,8 +1,10 @@
-import Link from "next/link";
+"use client";
+
+import Image from "next/image";
 
 function AppStoreBadge() {
   return (
-    <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="160" height="54" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="0.5" y="0.5" width="119" height="39" rx="5.5" fill="black"/>
       <rect x="0.5" y="0.5" width="119" height="39" rx="5.5" stroke="#A6A6A6"/>
       <path d="M24.7045 20.7631C24.7166 19.8432 24.9669 18.9413 25.4321 18.1412C25.8972 17.3411 26.5621 16.6688 27.3648 16.187C26.8548 15.476 26.1821 14.8908 25.4 14.478C24.6178 14.0652 23.7479 13.8361 22.8592 13.809C20.9635 13.6147 19.1258 14.9164 18.1598 14.9164C17.1751 14.9164 15.6878 13.8283 14.0862 13.8604C13.0502 13.8931 12.0406 14.1872 11.1557 14.7141C10.2708 15.241 9.54075 15.9827 9.03674 16.8669C6.85352 20.5573 8.48201 25.9809 10.5734 28.964C11.6197 30.4247 12.8426 32.0564 14.4428 31.9985C16.0086 31.9351 16.5934 31.0237 18.4835 31.0237C20.3561 31.0237 20.9048 31.9985 22.5374 31.9617C24.2176 31.9351 25.2762 30.4945 26.2859 29.02C27.0377 27.9792 27.6162 26.8288 28 25.6116C27.0238 25.2085 26.1908 24.5338 25.6048 23.6716C25.0187 22.8094 24.7056 21.7979 24.7045 20.7631Z" fill="white"/>
@@ -15,7 +17,7 @@ function AppStoreBadge() {
 
 function GooglePlayBadge() {
   return (
-    <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="160" height="54" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x={0.5} y={0.5} width={119} height={39} rx={5.5} fill="#000" />
       <rect x={0.5} y={0.5} width={119} height={39} rx={5.5} stroke="#A6A6A6" />
       <path d="M17.805 19.462L8.09 30.006l.001.006C8.39 31.157 9.411 32 10.625 32c.486 0 .941-.134 1.332-.37l.03-.018 10.936-6.453-5.118-5.697z" fill="#EA4335" />
@@ -27,117 +29,223 @@ function GooglePlayBadge() {
   );
 }
 
-export default function FooterSection() {
+
+function PhoneMockup({
+  src,
+  alt,
+  sizes,
+  radius = 28,
+}: {
+  src: string;
+  alt: string;
+  sizes: string;
+  radius?: number;
+}) {
   return (
-    <footer className="w-full bg-[#F8F5EE] border-t border-black/[0.07]">
-      <div className="tiny-container py-12 md:py-16">
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        borderRadius: radius,
+        border: "6px solid #18101f",
+        overflow: "hidden",
+        background: "#0a0612",
+      }}
+    >
+      <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
+      {/* Home indicator */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 8,
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "36%",
+          height: 3,
+          borderRadius: 999,
+          background: "rgba(255,255,255,0.28)",
+          zIndex: 10,
+        }}
+      />
+    </div>
+  );
+}
 
-        {/* Top: brand + nav columns */}
-        <div className="flex flex-col gap-10 md:flex-row md:justify-between">
+export default function HeroV4() {
+  return (
+    <section
+      className="relative w-full min-h-screen overflow-hidden flex items-center"
+      style={{
+        background:
+          "linear-gradient(120deg, #f5f3ff 0%, #ede9fe 35%, #ddd6fe 75%, #c4b5fd 100%)",
+      }}
+    >
+      {/* Ambient glows */}
+      <div
+        className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at 80% 20%, rgba(167,139,250,0.35) 0%, transparent 65%)",
+        }}
+      />
+      <div
+        className="absolute bottom-0 left-0 w-[400px] h-[400px] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at 20% 90%, rgba(196,181,253,0.25) 0%, transparent 65%)",
+        }}
+      />
 
-          {/* Brand column */}
-          <div className="flex flex-col gap-1">
-            <span className="font-semibold text-[#1f1635]">Word Versus</span>
-            <p className="text-sm italic text-gray-500">The right word, every time.</p>
-            <div className="flex flex-row flex-wrap gap-2 mt-5">
-              {/* TODO: App Store link */}
-              <a
-                href=""
-                aria-label="Download Word Versus on the App Store"
-                className="opacity-75 hover:opacity-100 transition-opacity"
-              >
-                <AppStoreBadge />
-              </a>
-              {/* TODO: Google Play link */}
-              <a
-                href=""
-                aria-label="Get Word Versus on Google Play"
-                className="opacity-75 hover:opacity-100 transition-opacity"
-              >
-                <GooglePlayBadge />
-              </a>
-            </div>
+      {/* Two-column grid */}
+      <div className="relative z-10 w-full max-w-[1366px] mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        {/* ── Left column: text ── */}
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+          {/* Trust badge */}
+          <div
+            className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium mb-7"
+            style={{
+              background: "rgba(255,255,255,0.72)",
+              backdropFilter: "blur(12px)",
+              border: "1px solid rgba(255,255,255,0.85)",
+              color: "#374151",
+              boxShadow: "0 2px 12px rgba(109,40,217,0.12)",
+            }}
+          >
+            <span>🏆</span>
+            <span>4.7 Rating · 190+ Reviews</span>
+            <span style={{ color: "#7c3aed", fontWeight: 700 }}>›</span>
           </div>
 
-          {/* Nav columns */}
-          <div className="flex flex-row flex-wrap gap-10 sm:gap-14">
+          {/* Headline */}
+          <h1 className="font-black leading-[1.06] mb-4">
+            <span
+              className="block text-4xl sm:text-5xl lg:text-5xl xl:text-6xl"
+              style={{ color: "#1f1635" }}
+            >
+              The right word,
+            </span>
+            <span
+              className="block text-4xl sm:text-5xl lg:text-5xl xl:text-6xl"
+              style={{
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                backgroundImage:
+                  "linear-gradient(135deg, #5b21b6 0%, #7c3aed 55%, #a855f7 100%)",
+              }}
+            >
+              every time.
+            </span>
+          </h1>
 
-            <div className="flex flex-col gap-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                Product
-              </h3>
-              <ul className="flex flex-col gap-2.5">
-                <li>
-                  {/* TODO: link to #how-it-works anchor once section has an id */}
-                  <a href="" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                    How it works
-                  </a>
-                </li>
-                <li>
-                  {/* TODO: link to #download anchor or App Store once available */}
-                  <a href="" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                    Download
-                  </a>
-                </li>
-              </ul>
-            </div>
+          {/* Subtitle */}
+          <p
+            className="text-base md:text-lg leading-relaxed mb-8 max-w-md"
+            style={{ color: "#5b5280" }}
+          >
+            Word Versus teaches the subtle differences between words you&apos;ve
+            been using interchangeably like <br />{" "}
+            <strong>
+              <em>alter</em> vs <em>modify</em>
+            </strong>{" "}
+            or{" "}
+            <strong>
+              <em>start</em> vs <em>begin</em>
+            </strong>{" "}
+            so your writing sounds as sharp as your thinking.
+          </p>
 
-            <div className="flex flex-col gap-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                Company
-              </h3>
-              <ul className="flex flex-col gap-2.5">
-                <li>
-                  {/* TODO: link to /about once page exists */}
-                  <a href="" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                    About
-                  </a>
-                </li>
-                <li>
-                  {/* TODO: link to /contact or mailto once available */}
-                  <a href="" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                Legal
-              </h3>
-              <ul className="flex flex-col gap-2.5">
-                <li>
-                  <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-
-        {/* Bottom: support + copyright */}
-        <div className="mt-10 pt-6 border-t border-black/[0.07] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-          <p className="text-xs text-gray-400">
-            Support:{" "}
-            {/* TODO: replace with real support email */}
-            <a href="mailto:TODO" className="underline underline-offset-2 hover:text-gray-600 transition-colors">
-              [SUPPORT_EMAIL]
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-3 items-center lg:items-start">
+            <a href="" className="transition-all duration-200 hover:scale-105 hover:opacity-90">
+              <AppStoreBadge />
             </a>
-          </p>
-          <p className="text-xs text-gray-400">
-            &copy; 2026 Word Versus. All rights reserved.
+            <a href="" className="transition-all duration-200 hover:scale-105 hover:opacity-90">
+              <GooglePlayBadge />
+            </a>
+          </div>
+
+          <p className="text-xs mt-4" style={{ color: "rgba(91,82,128,0.55)" }}>
+            Free to start · A new word pair every day
           </p>
         </div>
 
+        {/* ── Right column: three phones fan ── */}
+        <div
+          className="relative flex items-end justify-center"
+          style={{ minHeight: 560 }}
+        >
+          {/* Subtle glow behind phones */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              inset: "10% 10%",
+              background:
+                "radial-gradient(ellipse, rgba(139,92,246,0.22) 0%, transparent 70%)",
+              filter: "blur(30px)",
+            }}
+          />
+
+          {/* Left phone */}
+          <div
+            className="shrink-0"
+            style={{
+              width: "clamp(165px, 16vw, 220px)",
+              height: "clamp(356px, 34.6vw, 475px)",
+              transform: "rotate(-8deg) translateY(44px)",
+              marginRight: "clamp(-28px, -3vw, -44px)",
+              zIndex: 1,
+              filter: "drop-shadow(0 10px 20px rgba(109,40,217,0.25))",
+            }}
+          >
+            <PhoneMockup
+              src="/images/word-detail-1.png"
+              alt="Word Versus — word detail view"
+              sizes="220px"
+              radius={30}
+            />
+          </div>
+
+          {/* Center phone */}
+          <div
+            className="shrink-0"
+            style={{
+              width: "clamp(180px, 18vw, 250px)",
+              height: "clamp(389px, 38.9vw, 540px)",
+              zIndex: 3,
+              filter: "drop-shadow(0 20px 48px rgba(109,40,217,0.35))",
+            }}
+          >
+            <PhoneMockup
+              src="/images/word-detail-2.png"
+              alt="Word Versus — word comparison screen"
+              sizes="250px"
+              radius={34}
+            />
+          </div>
+
+          {/* Right phone */}
+          <div
+            className="shrink-0"
+            style={{
+              width: "clamp(165px, 16vw, 220px)",
+              height: "clamp(356px, 34.6vw, 475px)",
+              transform: "rotate(8deg) translateY(44px)",
+              marginLeft: "clamp(-28px, -3vw, -44px)",
+              zIndex: 2,
+              filter: "drop-shadow(0 10px 20px rgba(109,40,217,0.25))",
+            }}
+          >
+            <PhoneMockup
+              src="/images/word-detail-3.png"
+              alt="Word Versus — word usage examples screen"
+              sizes="220px"
+              radius={30}
+            />
+          </div>
+        </div>
       </div>
-    </footer>
+    </section>
   );
 }

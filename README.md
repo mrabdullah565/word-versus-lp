@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Word Versus — Marketing Site
+
+Marketing landing page and app-store public URL for **Word Versus**, a mobile vocabulary app that teaches the subtle differences between similar-looking words — e.g. "alter" vs "modify", "start" vs "begin".
+
+This repo serves two purposes:
+1. Marketing the Word Versus app to new users.
+2. Providing the publicly accessible URL required by the Apple App Store and Google Play during app submission.
+
+> **Note:** The codebase currently contains placeholder "Tiny Harvest" branding. All copy, images, colors, and metadata need to be updated to Word Versus before launch.
+
+---
+
+## Tech Stack
+
+- **Framework:** Next.js 16.2.4 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4 (CSS-first, no config file)
+- **Animations:** GSAP 3.15
+- **Icons:** lucide-react
+- **Runtime:** React 19 with React Compiler
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Install
+
+```bash
+npm install
+```
+
+### Run dev server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+### Lint
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+src/app/
+  layout.tsx              # Root layout — global fonts, Navbar, metadata
+  page.tsx                # Home page — assembles all landing sections
+  globals.css             # Tailwind v4 import, CSS variables, .tiny-container
+  components/
+    navbar/Navbar.tsx     # Responsive top navigation
+    HeroSection.tsx       # Hero with app store download buttons
+    Reviews.tsx           # Social proof / reviews
+    DetailSection.tsx     # Feature highlights
+    Action.tsx            # Call-to-action block
+    JourneySection.tsx    # How the app works
+    CommunitySection.tsx  # Community / social links
+    FooterSection.tsx     # Footer with legal links
+  privacy/page.tsx        # /privacy — Privacy Policy (required by app stores)
+public/images/            # Logo, app screenshots, decorative assets
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+The site is designed to deploy on **Vercel** (the default for Next.js App Router projects). Connect the repo to a Vercel project and deployments happen automatically on push to `main`.
+
+No environment variables are required for the static marketing site.
+
+---
+
+## Placeholders
+
+The following items need to be filled in before the site goes live:
+
+| Item | Location |
+|------|----------|
+| App Store link | `src/app/components/HeroSection.tsx` — App Store button `href` |
+| Google Play link | `src/app/components/HeroSection.tsx` — Google Play button `href` |
+| Support email | `src/app/privacy/page.tsx` and footer Support link |
+| Discord link | `src/app/components/navbar/Navbar.tsx` and `FooterSection.tsx` |
+| TikTok link | `src/app/components/navbar/Navbar.tsx` and `FooterSection.tsx` |
+| Logo / favicon | `public/images/logo.png`, `src/app/favicon.ico` |
+| Brand colors | `src/app/globals.css` — `--background` and `@theme inline` block |
+| Page metadata | `src/app/layout.tsx` — `title` and `description` |
+| All page copy | Hero, section text, reviews, footer copyright |
+
+---
+
+## Contact
+
+<!-- TODO: add support email -->
