@@ -2,7 +2,7 @@ import React from "react";
 import HeroV4 from "./components/HeroV4";
 import ProblemSection from "./components/ProblemSection";
 import HowItWorksSection from "./components/HowItWorksSection";
-import Reviews from "./components/Reviews";
+import FoundersNote from "./components/FoundersNote";
 import Action from "./components/Action";
 import Journey from "./components/JourneySection";
 import CommunitySection from "./components/CommunitySection";
@@ -15,7 +15,7 @@ const page = () => {
       <HeroV4 />
       <ProblemSection />
       <HowItWorksSection />
-      <Reviews />
+      <FoundersNote />
       {/* <DetailSection /> */}
       <Action />
       <Journey />
