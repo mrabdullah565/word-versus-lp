@@ -69,10 +69,9 @@ const Action = () => {
           {features.map((item) => (
             <div key={item.id} className="flex flex-col items-center">
               <div className="relative w-40 h-90 border-4 sm:w-48 sm:h-100 rounded-3xl bg-white overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-3 hover:scale-105">
-                <Image
+                <img
                   src={item.image}
                   alt={item.title}
-                  fill
                   sizes="(max-width: 640px) 100vw, 192px"
                   className="object-cover"
                 />
