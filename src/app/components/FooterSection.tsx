@@ -32,14 +32,14 @@ export default function FooterSection() {
     <footer className="w-full bg-[#F8F5EE] border-t border-black/[0.07]">
       <div className="tiny-container py-12 md:py-16">
 
-        {/* Top: brand + nav columns */}
-        <div className="flex flex-col gap-10 md:flex-row md:justify-between">
+        {/* Top: brand + legal */}
+        <div className="flex flex-col items-center text-center gap-8">
 
-          {/* Brand column */}
-          <div className="flex flex-col gap-1">
+          {/* Brand */}
+          <div className="flex flex-col items-center gap-1">
             <span className="font-semibold text-[#1f1635]">Word Versus</span>
             <p className="text-sm italic text-gray-500">The right word, every time.</p>
-            <div className="flex flex-row flex-wrap gap-2 mt-5">
+            <div className="flex flex-row flex-wrap justify-center gap-2 mt-5">
               {/* TODO: App Store link */}
               <a
                 href=""
@@ -59,77 +59,32 @@ export default function FooterSection() {
             </div>
           </div>
 
-          {/* Nav columns */}
-          <div className="flex flex-row flex-wrap gap-10 sm:gap-14">
-
-            <div className="flex flex-col gap-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                Product
-              </h3>
-              <ul className="flex flex-col gap-2.5">
-                <li>
-                  {/* TODO: link to #how-it-works anchor once section has an id */}
-                  <a href="" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                    How it works
-                  </a>
-                </li>
-                <li>
-                  {/* TODO: link to #download anchor or App Store once available */}
-                  <a href="" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                    Download
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                Company
-              </h3>
-              <ul className="flex flex-col gap-2.5">
-                <li>
-                  {/* TODO: link to /about once page exists */}
-                  <a href="" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                    About
-                  </a>
-                </li>
-                <li>
-                  {/* TODO: link to /contact or mailto once available */}
-                  <a href="" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                Legal
-              </h3>
-              <ul className="flex flex-col gap-2.5">
-                <li>
-                  <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
+          {/* Legal */}
+          <div className="flex flex-col items-center gap-3">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+              Legal
+            </h3>
+            <ul className="flex flex-row gap-6">
+              <li>
+                <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
         {/* Bottom: support + copyright */}
-        <div className="mt-10 pt-6 border-t border-black/[0.07] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+        <div className="mt-10 pt-6 border-t border-black/[0.07] flex flex-col items-center text-center gap-2">
           <p className="text-xs text-gray-400">
             Support:{" "}
-            {/* TODO: replace with real support email */}
-            <a href="mailto:TODO" className="underline underline-offset-2 hover:text-gray-600 transition-colors">
-              [SUPPORT_EMAIL]
+            <a href="mailto:mrabdullahrafique@gmail.com" className="underline underline-offset-2 hover:text-gray-600 transition-colors">
+              mrabdullahrafique@gmail.com
             </a>
           </p>
           <p className="text-xs text-gray-400">

@@ -222,7 +222,6 @@ export default function PrivacyPage() {
                 If you have any privacy questions or requests, please reach out:
               </p>
               <p className="mt-4 font-medium text-[#1f1635]">
-                {/* TODO: Support email */}
                 mrabdullahrafique@gmail.com
               </p>
             </section>

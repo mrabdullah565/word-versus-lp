@@ -6,79 +6,93 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-    { id: 1, title: "Support", link: "/" },
-    { id: 2, title: "Privacy Policy", link: "/privacy" },
-    { id: 3, title: "Terms of Use", link: "/terms" },
+  { id: 1, title: "Support", link: "mailto:mrabdullahrafique@gmail.com" },
+  { id: 2, title: "Privacy Policy", link: "/privacy" },
+  { id: 3, title: "Terms of Use", link: "/terms" },
 ];
 
 const Navbar = () => {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-    return (
-        <header className="w-full fixed top-0 left-0 z-50 bg-[#FEFBF7] border-b border-gray-100">
-            <nav className=" tiny-container py-4 flex items-center justify-between">
+  return (
+    <header
+      className="w-full fixed top-0 left-0 z-50  border-b border-gray-100"
+      style={{
+        background:
+          "linear-gradient(120deg, #f5f3ff 0%, #ede9fe 35%, #ddd6fe 75%, #c4b5fd 100%)",
+      }}
+    >
+      <nav className=" tiny-container py-4 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-3 z-50">
+          <svg
+            width={32}
+            height={32}
+            viewBox="0 0 1024 1024"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clipPath="url(#clip0_2005_758)">
+              <path fill="#fff" d="M0 0H1024V1024H0z" />
+              <path
+                d="M295.198 219.474c-2.937-8.81-6.503-15.523-10.698-20.138-3.776-5.034-8.391-8.39-13.845-10.069-5.034-2.097-11.747-3.146-20.138-3.146h-1.888V159.69h155.44v26.431h-8.181c-12.586 0-22.026 1.888-28.319 5.664-6.293 3.356-9.44 10.278-9.44 20.767 0 3.356.42 7.552 1.259 12.586a696.856 696.856 0 003.776 14.474l29.577 105.724c2.937 10.069 5.664 21.397 8.181 33.983a1989.95 1989.95 0 018.181 35.241c2.518 10.908 4.406 19.929 5.664 27.061h1.888c1.259-7.132 3.147-15.733 5.664-25.802a7818.327 7818.327 0 019.44-32.095l10.698-32.095 65.448-190.051h39.647l62.931 186.276c2.517 7.551 5.034 15.732 7.551 24.543a463.198 463.198 0 018.181 25.801 3481.967 3481.967 0 016.923 24.543c2.097 7.552 3.566 13.845 4.405 18.88h1.888c1.258-7.132 2.937-15.104 5.034-23.914a2530.71 2530.71 0 008.181-30.836 2648.493 2648.493 0 0111.328-37.13l31.465-101.318c1.679-5.454 2.937-11.118 3.776-16.992 1.259-6.293 1.888-11.118 1.888-14.474 0-10.908-3.566-18.669-10.698-23.284-6.713-5.035-16.991-7.552-30.836-7.552h-4.405V159.69h134.672v26.431h-8.181c-7.971 0-14.684 1.258-20.138 3.776-5.454 2.097-10.279 6.712-14.474 13.845-4.196 7.132-8.391 17.62-12.586 31.465L653.276 497h-50.345l-86.216-263.052L427.353 497h-49.715l-82.44-277.526z"
+                fill="#000"
+              />
+              <path fill="#000" d="M106 505H918V517H106z" />
+              <path
+                d="M736.536 802.649c2.96 8.803 6.543 15.506 10.751 20.11 3.789 5.024 8.413 8.369 13.871 10.032 5.04 2.085 11.756 3.116 20.147 3.094l1.887-.005.07 26.431-155.439.41-.07-26.431 8.181-.021c12.587-.034 22.021-1.947 28.304-5.739 6.285-3.373 9.413-10.304 9.385-20.792-.009-3.356-.439-7.551-1.292-12.583a704.241 704.241 0 00-3.814-14.464L638.66 677.045c-2.963-10.061-5.72-21.381-8.27-33.961a1990 1990 0 01-8.274-35.219c-2.546-10.902-4.458-19.917-5.736-27.046l-1.887.005c-1.24 7.136-3.105 15.741-5.596 25.817a7919.306 7919.306 0 01-9.355 32.12l-10.613 32.123-64.947 190.223-39.646.105-63.423-186.109c-2.537-7.545-5.076-15.719-7.616-24.523a463.159 463.159 0 01-8.249-25.78 3471.03 3471.03 0 01-6.988-24.525c-2.117-7.546-3.602-13.835-4.455-18.867l-1.887.005c-1.24 7.135-2.897 15.111-4.972 23.927a2555.175 2555.175 0 00-8.099 30.857 2636.552 2636.552 0 01-11.23 37.159l-31.198 101.402c-1.663 5.459-2.907 11.126-3.731 17.001-1.242 6.297-1.858 11.123-1.849 14.479.029 10.908 3.615 18.661 10.759 23.257 6.726 5.016 17.012 7.506 30.856 7.47l4.406-.012.069 26.431-134.671.356-.07-26.431 8.181-.022c7.971-.021 14.68-1.297 20.128-3.829 5.448-2.112 10.261-6.739 14.437-13.883 4.177-7.143 8.344-17.642 12.503-31.498l80.49-262.007 50.344-.133 86.91 262.823 88.667-263.286 49.715-.132 83.173 277.307z"
+                fill="#000"
+                fillOpacity={0.59}
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_2005_758">
+                <path fill="#fff" d="M0 0H1024V1024H0z" />
+              </clipPath>
+            </defs>
+          </svg>
+          {/* <Image
+            src="/images/logo.png"
+            alt="Word Versus Logo"
+            width={32}
+            height={32}
+            className="rounded"
+          /> */}
+          <span className="text-xl font-medium text-black">Word Versus</span>
+        </Link>
 
-                <Link href="/" className="flex items-center gap-3 z-50">
-                    <Image
-                        src="/images/logo.png"
-                        alt="Word Versus Logo"
-                        width={32}
-                        height={32}
-                        className="rounded"
-                    />
-                    <span className="text-xl font-medium text-black">
-                        Word Versus
-                    </span>
-                </Link>
+        <div className="hidden md:flex items-center gap-6">
+          {navLinks.map((item) => (
+            <Link
+              key={item.id}
+              href={item.link}
+              className="text-gray-700 hover:text-green-600 transition"
+            >
+              {item.title}
+            </Link>
+          ))}
+        </div>
 
-                <div className="hidden md:flex items-center gap-6">
-                    {/* TODO: Discord link */}
-                    <a href="" aria-label="Discord" className="hover:text-green-600 text-black">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"></path> </svg>
-                    </a>
+        <button onClick={() => setOpen(!open)} className="md:hidden z-50">
+          {open ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </nav>
 
-                    {/* TODO: TikTok link */}
-                    <a href="" aria-label="TikTok" className="hover:text-green-600 text-black">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path> </svg>
-                    </a>
-
-                    {navLinks.map((item) => (
-                        <Link
-                            key={item.id}
-                            href={item.link}
-                            className="text-gray-700 hover:text-green-600 transition"
-                        >
-                            {item.title}
-                        </Link>
-                    ))}
-                </div>
-
-                <button
-                    onClick={() => setOpen(!open)}
-                    className="md:hidden z-50"
-                >
-                    {open ? <X size={28} /> : <Menu size={28} />}
-                </button>
-            </nav>
-
-            {open && (
-                <div className="md:hidden absolute top-16 left-0 w-full bg-[#FEFBF7] border-b border-gray-100 px-6 py-6 flex flex-col gap-5">
-
-                    {navLinks.map((item) => (
-                        <Link
-                            key={item.id}
-                            href={item.link}
-                            className="text-gray-700 hover:text-green-600 transition"
-                            onClick={() => setOpen(false)}
-                        >
-                            {item.title}
-                        </Link>
-                    ))}
-
-                </div>
-            )}
-        </header>
-    );
+      {open && (
+        <div className="md:hidden absolute top-16 left-0 w-full bg-[#FEFBF7] border-b border-gray-100 px-6 py-6 flex flex-col gap-5">
+          {navLinks.map((item) => (
+            <Link
+              key={item.id}
+              href={item.link}
+              className="text-gray-700 hover:text-green-600 transition"
+              onClick={() => setOpen(false)}
+            >
+              {item.title}
+            </Link>
+          ))}
+        </div>
+      )}
+    </header>
+  );
 };
 
 export default Navbar;
