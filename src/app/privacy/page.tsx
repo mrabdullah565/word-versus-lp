@@ -62,14 +62,6 @@ export default function PrivacyPage() {
                   performance (e.g. session length, screens visited). No
                   individual user is identifiable from this data.
                 </li>
-                <li>
-                  <span className="font-medium text-gray-700">
-                    Purchase records
-                  </span>{" "}
-                  — if you make an in-app purchase, the transaction is processed
-                  by Apple App Store or Google Play. We receive only a
-                  confirmation and do not store payment card details.
-                </li>
               </ul>
               <p className="mt-4">
                 We do <span className="font-medium text-gray-700">not</span>{" "}
@@ -91,7 +83,6 @@ export default function PrivacyPage() {
                   Understand which features are most useful so we can improve
                   them
                 </li>
-                <li>Process and verify in-app purchases</li>
               </ul>
               <p className="mt-4">
                 We do not sell, rent, or trade your data to third parties for
@@ -114,7 +105,7 @@ export default function PrivacyPage() {
                   <span className="font-medium text-gray-700">
                     Apple App Store / Google Play
                   </span>{" "}
-                  — distribute the app and process in-app purchases.
+                  — distribute the app to your device.
                 </li>
                 <li>
                   <span className="font-medium text-gray-700">
@@ -222,7 +213,7 @@ export default function PrivacyPage() {
                 If you have any privacy questions or requests, please reach out:
               </p>
               <p className="mt-4 font-medium text-[#1f1635]">
-                mrabdullahrafique@gmail.com
+                abdullahrafique@gmail.com
               </p>
             </section>
           </div>

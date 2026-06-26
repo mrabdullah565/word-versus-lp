@@ -75,6 +75,11 @@ export default function FooterSection() {
                   Terms of Service
                 </Link>
               </li>
+              <li>
+                <Link href="/support" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
+                  Support
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -83,8 +88,8 @@ export default function FooterSection() {
         <div className="mt-10 pt-6 border-t border-black/[0.07] flex flex-col items-center text-center gap-2">
           <p className="text-xs text-gray-400">
             Support:{" "}
-            <a href="mailto:mrabdullahrafique@gmail.com" className="underline underline-offset-2 hover:text-gray-600 transition-colors">
-              mrabdullahrafique@gmail.com
+            <a href="mailto:abdullahrafique@gmail.com" className="underline underline-offset-2 hover:text-gray-600 transition-colors">
+              abdullahrafique@gmail.com
             </a>
           </p>
           <p className="text-xs text-gray-400">

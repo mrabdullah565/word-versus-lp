@@ -4,18 +4,16 @@
 
 Marketing site and app-store public URL for **Word Versus**, a mobile app that teaches the subtle differences between similar-looking words (e.g. "alter" vs "modify", "start" vs "begin"). Built with Next.js 16 App Router.
 
-> **Important:** The codebase currently contains placeholder "Tiny Harvest" branding. All copy, colors, logos, and metadata must be updated to Word Versus before launch.
-
 ## Tech Stack
 
-| Tool | Detail |
-|------|--------|
-| Next.js 16.2.4 | App Router (`src/app/`), React Compiler enabled |
-| React 19.2.4 | |
-| TypeScript 5 | |
+| Tool            | Detail                                                                       |
+| --------------- | ---------------------------------------------------------------------------- |
+| Next.js 16.2.4  | App Router (`src/app/`), React Compiler enabled                              |
+| React 19.2.4    |                                                                              |
+| TypeScript 5    |                                                                              |
 | Tailwind CSS v4 | CSS-first config — **no `tailwind.config.js`**; configured via `globals.css` |
-| GSAP 3.15 | Scroll/entrance animations |
-| lucide-react | Icon library |
+| GSAP 3.15       | Scroll/entrance animations                                                   |
+| lucide-react    | Icon library                                                                 |
 
 ## Commands
 
@@ -36,14 +34,16 @@ src/app/
   globals.css             # Tailwind v4 import, CSS custom props, .tiny-container
   components/
     navbar/Navbar.tsx     # fixed top nav, mobile hamburger menu ("use client")
-    HeroSection.tsx       # hero with app store download CTAs ("use client")
-    Reviews.tsx           # social proof / review cards
-    DetailSection.tsx     # feature detail rows
-    Action.tsx            # mid-page CTA block
-    JourneySection.tsx    # how-it-works / user journey
-    CommunitySection.tsx  # community / social links
-    FooterSection.tsx     # footer with Privacy Policy and Terms links
+    HeroV4.tsx             # hero with app store download CTAs ("use client")
+    ProblemSection.tsx     # before/after framing of the word-confusion problem
+    HowItWorksSection.tsx  # how-it-works walkthrough
+    FoundersNote.tsx       # founder's note
+    Action.tsx              # "see it in action" screenshot grid
+    FinalCTA.tsx            # closing call-to-action block
+    FooterSection.tsx       # footer with Privacy/Terms/Support links
   privacy/page.tsx        # /privacy — Privacy Policy page
+  terms/page.tsx          # /terms — Terms of Use page
+  support/page.tsx        # /support — Support & FAQ page
 public/images/            # static images: logo.png, screenshots, star.webp
 ```
 
@@ -67,12 +67,8 @@ public/images/            # static images: logo.png, screenshots, star.webp
 
 ## TODOs (awaiting owner input)
 
-- `TODO: App Store link` — `href` on App Store button in HeroSection
-- `TODO: Google Play link` — `href` on Google Play button in HeroSection
-- `TODO: Support email` — footer Support link and Privacy Policy contact address
+- `TODO: App Store link` — `href` on App Store button in HeroV4 and FooterSection
+- `TODO: Google Play link` — `href` on Google Play button in HeroV4 and FooterSection
 - `TODO: Discord link` — Discord icon `href` in Navbar and FooterSection
 - `TODO: TikTok link` — TikTok icon `href` in Navbar and FooterSection
-- `TODO: Brand assets` — Word Versus logo (`public/images/logo.png`), favicon, og:image
 - `TODO: Brand colors` — update CSS custom properties in `globals.css` to Word Versus palette
-- `TODO: Update metadata` — `title` and `description` in `layout.tsx` (currently "Tiny Harvest")
-- `TODO: Replace all placeholder copy` — hero text, section copy, reviews, footer copyright

@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { id: 1, title: "Support", link: "mailto:mrabdullahrafique@gmail.com" },
+  { id: 1, title: "Support", link: "/support" },
   { id: 2, title: "Privacy Policy", link: "/privacy" },
   { id: 3, title: "Terms of Use", link: "/terms" },
 ];

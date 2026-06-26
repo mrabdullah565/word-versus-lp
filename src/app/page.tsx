@@ -3,7 +3,6 @@ import ProblemSection from "./components/ProblemSection";
 import HowItWorksSection from "./components/HowItWorksSection";
 import FoundersNote from "./components/FoundersNote";
 import Action from "./components/Action";
-import Journey from "./components/JourneySection";
 import FinalCTA from "./components/FinalCTA";
 import FooterSection from "./components/FooterSection";
 

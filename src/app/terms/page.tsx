@@ -72,32 +72,13 @@ export default function TermsPage() {
 
             <section>
               <h2 className="text-xl font-semibold text-[#1f1635] mb-4">
-                In-App Purchases &amp; Subscriptions
+                Cost
               </h2>
-              <p className="mb-4">
-                Word Versus may offer optional in-app purchases or subscriptions
-                to unlock premium content. By making a purchase you agree to the
-                following:
+              <p>
+                Word Versus is currently free to download and use, and does
+                not offer any in-app purchases or subscriptions. If this
+                changes in the future, we will update these Terms accordingly.
               </p>
-              <ul className="list-disc pl-5 space-y-2">
-                <li>
-                  All purchases are processed by Apple App Store or Google Play
-                  and are subject to their respective payment terms.
-                </li>
-                <li>
-                  Subscription fees are billed in advance on a recurring basis
-                  and will auto-renew unless cancelled at least 24 hours before
-                  the end of the current period.
-                </li>
-                <li>
-                  You may manage or cancel your subscription at any time through
-                  your App Store or Google Play account settings.
-                </li>
-                <li>
-                  Refunds are handled in accordance with the policies of the
-                  relevant app store. We do not issue refunds directly.
-                </li>
-              </ul>
             </section>
 
             <section>
@@ -230,8 +211,7 @@ export default function TermsPage() {
                 If you have any questions about these Terms, please contact us:
               </p>
               <p className="mt-4 font-medium text-[#1f1635]">
-                {/* TODO: Support email */}
-                mrabdullahrafique@gmail.com
+                abdullahrafique@gmail.com
               </p>
             </section>
           </div>

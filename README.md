@@ -6,8 +6,6 @@ This repo serves two purposes:
 1. Marketing the Word Versus app to new users.
 2. Providing the publicly accessible URL required by the Apple App Store and Google Play during app submission.
 
-> **Note:** The codebase currently contains placeholder "Tiny Harvest" branding. All copy, images, colors, and metadata need to be updated to Word Versus before launch.
-
 ---
 
 ## Tech Stack
@@ -66,14 +64,16 @@ src/app/
   globals.css             # Tailwind v4 import, CSS variables, .tiny-container
   components/
     navbar/Navbar.tsx     # Responsive top navigation
-    HeroSection.tsx       # Hero with app store download buttons
-    Reviews.tsx           # Social proof / reviews
-    DetailSection.tsx     # Feature highlights
-    Action.tsx            # Call-to-action block
-    JourneySection.tsx    # How the app works
-    CommunitySection.tsx  # Community / social links
-    FooterSection.tsx     # Footer with legal links
+    HeroV4.tsx             # Hero with app store download buttons
+    ProblemSection.tsx     # Problem / before-and-after framing
+    HowItWorksSection.tsx  # How the app works
+    FoundersNote.tsx       # Founder's note
+    Action.tsx              # "See it in action" screenshot grid
+    FinalCTA.tsx            # Closing call-to-action block
+    FooterSection.tsx       # Footer with legal + support links
   privacy/page.tsx        # /privacy — Privacy Policy (required by app stores)
+  terms/page.tsx          # /terms — Terms of Use
+  support/page.tsx        # /support — Support & FAQ
 public/images/            # Logo, app screenshots, decorative assets
 ```
 
@@ -93,18 +93,14 @@ The following items need to be filled in before the site goes live:
 
 | Item | Location |
 |------|----------|
-| App Store link | `src/app/components/HeroSection.tsx` — App Store button `href` |
-| Google Play link | `src/app/components/HeroSection.tsx` — Google Play button `href` |
-| Support email | `src/app/privacy/page.tsx` and footer Support link |
+| App Store link | `src/app/components/HeroV4.tsx` and `FooterSection.tsx` — App Store button `href` |
+| Google Play link | `src/app/components/HeroV4.tsx` and `FooterSection.tsx` — Google Play button `href` |
 | Discord link | `src/app/components/navbar/Navbar.tsx` and `FooterSection.tsx` |
 | TikTok link | `src/app/components/navbar/Navbar.tsx` and `FooterSection.tsx` |
-| Logo / favicon | `public/images/logo.png`, `src/app/favicon.ico` |
 | Brand colors | `src/app/globals.css` — `--background` and `@theme inline` block |
-| Page metadata | `src/app/layout.tsx` — `title` and `description` |
-| All page copy | Hero, section text, reviews, footer copyright |
 
 ---
 
 ## Contact
 
-<!-- TODO: add support email -->
+Support: abdullahrafique@gmail.com
